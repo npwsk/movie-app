@@ -1,0 +1,125 @@
+:root {
+  --color-text: #ffffff;
+  --color-bg: #1d1d1d;
+  --gap: 1.5rem;
+  --padding-block-content: 2.5rem;
+  --font-size-main: 16px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-size: var(--font-size-main);
+  background-color: var(--color-bg);
+}
+
+.container {
+  box-sizing: border-box;
+  max-width: 1240px;
+  padding-inline: 20px;
+  margin-inline: auto;
+}
+
+.link {
+  color: var(--color-text);
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+}
+
+.search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: min(300px, 100%);
+}
+.search-form__input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px 35px 5px 10px;
+  font-size: var(--font-size-main);
+  font-family: "Poppins", sans-serif;
+  border: none;
+  border-radius: 1em;
+}
+.search-form__submit {
+  position: absolute;
+  right: 5px;
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background: none;
+  background-image: url("../assets/svg/search.svg");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}
+.movie-card__poster {
+  width: 100%;
+  aspect-ratio: 12/17;
+  background-color: #bebebe;
+}
+.movie-card__title {
+  color: var(--color-text);
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+}
+
+.header__content {
+  padding-block: var(--padding-block-content);
+  display: flex;
+}
+.header__search-form {
+  margin-left: auto;
+}
+
+.main__content {
+  padding-block: var(--padding-block-content);
+}
+.main__movies-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--gap);
+}
+
+.footer {
+  margin-top: auto;
+}
+.footer__content {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding-block: var(--padding-block-content);
+}
+.footer__copy, .footer__year {
+  color: var(--color-text);
+  font-size: var(--font-size-main);
+  font-family: "Poppins", sans-serif;
+}
+.footer__rsschool {
+  margin-left: auto;
+}
+.footer__rsschool-link {
+  display: block;
+  padding: 5px;
+  background-color: var(--color-text);
+  box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.7);
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
+}
+.footer__rsschool-link:hover {
+  transform: scale(1.05);
+}
+.footer__rsschool-img {
+  display: block;
+}/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,34 @@
+@use "scss-variables" as *;
+
+.search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: min(300px, 100%);
+
+  &__input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px 35px 5px 10px;
+    font-size: var(--font-size-main);
+    font-family: $font-main;
+    border: none;
+    border-radius: 1em;
+  }
+
+  &__submit {
+    position: absolute;
+    right: 5px;
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    background: none;
+    background-image: url("../assets/svg/search.svg");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    border: none;
+    cursor: pointer;
+  }
+}

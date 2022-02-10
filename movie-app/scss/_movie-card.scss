@@ -1,0 +1,19 @@
+@use "scss-variables" as *;
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+
+  &__poster {
+    width: 100%;
+    aspect-ratio: 12 / 17;
+    background-color: rgb(190, 190, 190);
+  }
+
+  &__title {
+    color: var(--color-text);
+    font-weight: 700;
+    font-family: $font-main;
+  }
+}

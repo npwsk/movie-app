@@ -1,0 +1,10 @@
+.header {
+  &__content {
+    padding-block: var(--padding-block-content);
+    display: flex;
+  }
+
+  &__search-form {
+    margin-left: auto;
+  }
+}
