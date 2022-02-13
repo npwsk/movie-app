@@ -26,13 +26,18 @@
     <header class="header">
       <div class="container">
         <div class="header__content">
-          <form class="header__search-form search-form">
+          <form class="header__search-form search-form" autocomplete="off">
             <input
               class="search-form__input"
               type="text"
               name="user-input"
               placeholder="Search for movies"
+              role="presentation"
+              autocomplete="off"
+              autofocus
+              required
             />
+            <button class="search-form__reset" type="reset"></button>
             <button class="search-form__submit" type="submit"></button>
           </form>
         </div>

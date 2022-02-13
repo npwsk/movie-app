@@ -9,6 +9,8 @@ const { imageBaseUrl, genres } = await getAuxillaryData();
 const containerElem = document.querySelector('.main__movies-container');
 const searchFormElem = document.querySelector('.header__search-form');
 // const searchBtn = searchFormElem.querySelector('.search-form__submit');
+const searchInputElem = searchFormElem.querySelector('.search-form__input');
+const clearBtn = searchFormElem.querySelector('.search-form__reset');
 
 const trendingMovies = await getData(constants.TRENDING_URL);
 renderCards(containerElem, trendingMovies, imageBaseUrl);
@@ -22,5 +24,27 @@ const handleFormSubmit = async (e) => {
   renderCards(containerElem, resultData, imageBaseUrl);
 };
 
+const handleFormReset = () => {
+  clearBtn.classList.remove('search-form__reset--active');
+  searchInputElem.focus();
+};
+
+const handleInput = (e) => {
+  e.target.setCustomValidity('');
+
+  if (e.target.value) {
+    clearBtn.classList.add('search-form__reset--active');
+  } else {
+    clearBtn.classList.remove('search-form__reset--active');
+  }
+};
+
+const handleInvalidInput = (e) => {
+  e.target.setCustomValidity('Please, enter a movie title here');
+};
+
 // searchBtn.addEventListener('click');
 searchFormElem.addEventListener('submit', handleFormSubmit);
+searchFormElem.addEventListener('reset', handleFormReset);
+searchInputElem.addEventListener('input', handleInput);
+searchInputElem.addEventListener('invalid', handleInvalidInput);

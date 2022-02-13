@@ -33,28 +33,49 @@ body {
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  width: min(300px, 100%);
+  width: min(350px, 100%);
 }
 .search-form__input {
   box-sizing: border-box;
   width: 100%;
-  padding: 5px 35px 5px 10px;
+  padding: 0.8em 4.5em 0.8em 1.5em;
   font-size: var(--font-size-main);
   font-family: "Poppins", sans-serif;
   border: none;
-  border-radius: 1em;
+  border-radius: 2em;
+}
+.search-form__reset {
+  position: absolute;
+  right: 3.5em;
+  box-sizing: border-box;
+  width: 1.3em;
+  height: 1.3em;
+  padding: 0;
+  background: none;
+  background-image: url("../assets/svg/clear.svg");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+.search-form__reset--active {
+  opacity: 1;
 }
 .search-form__submit {
   position: absolute;
-  right: 5px;
+  right: 1em;
   box-sizing: border-box;
-  width: 30px;
-  height: 30px;
+  width: 2em;
+  height: 2em;
   padding: 0;
   background: none;
   background-image: url("../assets/svg/search.svg");
   background-repeat: no-repeat;
   background-position: 50% 50%;
+  background-size: contain;
   border: none;
   cursor: pointer;
 }
@@ -120,9 +141,8 @@ body {
 .footer__rsschool-link {
   display: block;
   padding: 5px;
-  background-color: var(--color-text);
-  box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.7);
   transform: scale(1);
+  filter: invert(100%);
   transition: transform 0.3s ease-in-out;
 }
 .footer__rsschool-link:hover {
