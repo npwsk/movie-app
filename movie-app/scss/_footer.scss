@@ -32,6 +32,6 @@
 
   &__rsschool-img {
     display: block;
-    filter: invert(100%);
+    filter: var(--filter-rs-logo);
   }
 }

@@ -11,8 +11,10 @@
     box-sizing: border-box;
     width: 100%;
     padding: 0.8em 4.5em 0.8em 1.5em;
+    color: var(--color-text);
     font-size: var(--font-size-main);
     font-family: $font-main;
+    background-color: var(--color-bg-input);
     border: none;
     border-radius: 2em;
 
@@ -28,6 +30,10 @@
 
     &:focus:not(:focus-visible) {
       outline: none;
+    }
+
+    &::placeholder {
+      color: var(--color-placeholder);
     }
   }
 

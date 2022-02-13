@@ -1,6 +1,8 @@
 :root {
-  --color-text: #ffffff;
-  --color-bg: #1d1d1d;
+  --color-text: #1d1d1d;
+  --color-bg: #ffffff;
+  --color-bg-input: #f7f7f7;
+  --color-placeholder: #b6b6b6;
   --gap: 1.5rem;
   --padding-block-content: 2.5rem;
   --font-size-main: 16px;
@@ -8,6 +10,15 @@
   --outline-style: solid;
   --outline-color: rgba(81 203 238 / 100%);
   --outline-offset: 2px;
+  --filter-rs-logo: invert(0%);
+}
+
+body.dark {
+  --color-text: #ffffff;
+  --color-bg: #1d1d1d;
+  --color-bg-input: #4e4e4e;
+  --color-placeholder: #bbbbbb;
+  --filter-rs-logo: invert(100%);
 }
 
 body {
@@ -55,8 +66,10 @@ body {
   box-sizing: border-box;
   width: 100%;
   padding: 0.8em 4.5em 0.8em 1.5em;
+  color: var(--color-text);
   font-size: var(--font-size-main);
   font-family: "Poppins", sans-serif;
+  background-color: var(--color-bg-input);
   border: none;
   border-radius: 2em;
 }
@@ -70,6 +83,15 @@ body {
 }
 .search-form__input:focus:not(:focus-visible) {
   outline: none;
+}
+.search-form__input::-moz-placeholder {
+  color: var(--color-placeholder);
+}
+.search-form__input:-ms-input-placeholder {
+  color: var(--color-placeholder);
+}
+.search-form__input::placeholder {
+  color: var(--color-placeholder);
 }
 .search-form__reset {
   position: absolute;
@@ -118,7 +140,10 @@ body {
 .movie-card__poster {
   width: 100%;
   aspect-ratio: 2/3;
+  overflow: hidden;
   background-color: #bebebe;
+  border-radius: 0.8em;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
 }
 .movie-card__img {
   display: block;
@@ -128,10 +153,30 @@ body {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.movie-card__info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding-inline: 0.6em;
+}
 .movie-card__title {
+  grid-column: 1/3;
   color: var(--color-text);
   font-weight: 700;
   font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+}
+.movie-card__main-genre {
+  color: var(--color-text);
+  font-size: var(--font-size-main);
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+}
+.movie-card__rating {
+  color: var(--color-text);
+  font-size: var(--font-size-main);
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  text-align: right;
 }
 
 .header__content {
@@ -179,5 +224,5 @@ body {
 }
 .footer__rsschool-img {
   display: block;
-  filter: invert(100%);
+  filter: var(--filter-rs-logo);
 }/*# sourceMappingURL=index.css.map */

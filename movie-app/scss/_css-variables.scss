@@ -1,6 +1,9 @@
 :root {
-  --color-text: #ffffff;
-  --color-bg: #1d1d1d;
+  --color-text: #1d1d1d;
+  --color-bg: #ffffff;
+  // --color-accent: rgb(3, 0, 189);
+  --color-bg-input: #f7f7f7;
+  --color-placeholder: #b6b6b6;
   --gap: 1.5rem;
   --padding-block-content: 2.5rem;
   --font-size-main: 16px;
@@ -8,4 +11,13 @@
   --outline-style: solid;
   --outline-color: rgba(81 203 238 / 100%);
   --outline-offset: 2px;
+  --filter-rs-logo: invert(0%);
+}
+
+body.dark {
+  --color-text: #ffffff;
+  --color-bg: #1d1d1d;
+  --color-bg-input: #4e4e4e;
+  --color-placeholder: #bbbbbb;
+  --filter-rs-logo: invert(100%);
 }

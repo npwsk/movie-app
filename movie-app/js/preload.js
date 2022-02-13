@@ -9,6 +9,7 @@ const getAuxillaryData = async () => {
   } = configObj;
 
   const { genres } = await getData(constants.GENRE_LIST_URL);
+  console.log(genres);
 
   return {
     imageBaseUrl,

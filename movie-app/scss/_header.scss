@@ -1,3 +1,5 @@
+@use "scss-variables" as *;
+
 .header {
   &__content {
     padding-block: var(--padding-block-content);

@@ -13,7 +13,7 @@ const searchInputElem = searchFormElem.querySelector('.search-form__input');
 const clearBtn = searchFormElem.querySelector('.search-form__reset');
 
 const trendingMovies = await getData(constants.TRENDING_URL);
-renderCards(containerElem, trendingMovies, imageBaseUrl);
+renderCards(containerElem, trendingMovies, imageBaseUrl, genres);
 
 const handleFormSubmit = async (e) => {
   e.preventDefault();
@@ -21,7 +21,7 @@ const handleFormSubmit = async (e) => {
   const userInput = formData.get('user-input');
   console.log(formData);
   const resultData = await getData(`${constants.SEARCH_MOVIE_URL_BASE}&query=${userInput}`);
-  renderCards(containerElem, resultData, imageBaseUrl);
+  renderCards(containerElem, resultData, imageBaseUrl, genres);
 };
 
 const handleFormReset = () => {
