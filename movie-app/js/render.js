@@ -7,8 +7,8 @@ const renderCards = (container, data, baseUrl) => {
   [...cards].filter((_card, i) => i >= movies.length).forEach((card) => card.remove());
 
   movies.forEach((movie, i) => {
-    const { poster_path: path } = movie;
-    const imgSrc = `${baseUrl}w500${path}`;
+    const { poster_path: posterPath } = movie;
+    const imgSrc = posterPath ? `${baseUrl}w500${posterPath}` : './assets/img/no-poster.jpg';
 
     if (i < cards.length) {
       const titleElem = cards[i].querySelector('.movie-card__title');
