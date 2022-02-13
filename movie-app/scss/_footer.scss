@@ -23,7 +23,6 @@
     display: block;
     padding: 5px;
     transform: scale(1);
-    filter: invert(100%);
     transition: transform 0.3s ease-in-out;
 
     &:hover {
@@ -33,5 +32,6 @@
 
   &__rsschool-img {
     display: block;
+    filter: invert(100%);
   }
 }

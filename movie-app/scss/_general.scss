@@ -13,3 +13,19 @@ body {
   padding-inline: 20px;
   margin-inline: auto;
 }
+
+:is(a, button, input, textarea, summary) {
+  &:focus {
+    outline: var(--outline-size) var(--outline-style) var(--outline-color);
+    outline-offset: var(--outline-offset);
+  }
+
+  &:focus-visible {
+    outline: var(--outline-size) var(--outline-style) var(--outline-color);
+    outline-offset: var(--outline-offset);
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+}

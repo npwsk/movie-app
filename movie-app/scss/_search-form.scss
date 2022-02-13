@@ -15,6 +15,20 @@
     font-family: $font-main;
     border: none;
     border-radius: 2em;
+
+    &:focus {
+      outline: var(--outline-size) var(--outline-style) var(--outline-color);
+      outline-offset: var(--outline-offset);
+    }
+
+    &:focus-visible {
+      outline: var(--outline-size) var(--outline-style) var(--outline-color);
+      outline-offset: var(--outline-offset);
+    }
+
+    &:focus:not(:focus-visible) {
+      outline: none;
+    }
   }
 
   &__reset {
@@ -30,12 +44,15 @@
     background-position: 50% 50%;
     background-size: contain;
     border: none;
+    visibility: hidden;
     cursor: pointer;
     opacity: 0;
-    transition: opacity 0.3s ease-in;
+    transition: opacity 0.3s ease-in, visibility 0s linear 0.3s;
 
     &--active {
+      visibility: visible;
       opacity: 1;
+      transition: opacity 0.3s ease-in, visibility 0s linear;
     }
   }
 
