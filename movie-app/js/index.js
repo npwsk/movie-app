@@ -2,6 +2,7 @@ import constants from './constants.js';
 import { renderCards, renderNextPageBtn } from './render.js';
 import getData from './getData.js';
 import getAuxillaryData from './preload.js';
+import printSelfEvaluation from './selfEval.js';
 
 const { imageBaseUrl, genres } = await getAuxillaryData();
 
@@ -26,8 +27,6 @@ renderCards({
   baseUrl: imageBaseUrl,
   genres,
 });
-
-console.log(trendingData.page, trendingData);
 
 const loadNextPage = async (e) => {
   const { nextPage, fetchUrl } = e.target.dataset;
@@ -93,7 +92,6 @@ searchInputElem.addEventListener('input', handleInput);
 searchInputElem.addEventListener('invalid', handleInvalidInput);
 
 if (trendingData.page < trendingData.total_pages) {
-  console.log(trendingData.page, trendingData.total_pages);
   const nextPageBtn = renderNextPageBtn(
     paginationElem,
     trendingData.page + 1,
@@ -101,3 +99,5 @@ if (trendingData.page < trendingData.total_pages) {
   );
   nextPageBtn.addEventListener('click', loadNextPage);
 }
+
+printSelfEvaluation();
