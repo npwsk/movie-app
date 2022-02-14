@@ -32,7 +32,6 @@ const loadNextPage = async (e) => {
   const { nextPage, fetchUrl } = e.target.dataset;
   const nextUrl = `${fetchUrl}&page=${nextPage}`;
   const data = await getData(nextUrl);
-  console.log(data);
   renderCards({
     elements: mainElements,
     movies: data.results,
