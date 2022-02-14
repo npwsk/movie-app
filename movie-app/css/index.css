@@ -194,7 +194,7 @@ body {
 }
 .movie-card__info {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;
   padding-inline: 0.6em;
 }
 .movie-card__title {
@@ -214,8 +214,20 @@ body {
   color: var(--color-text);
   font-size: var(--font-size-main);
   font-family: "Poppins", sans-serif;
+  display: flex;
+  gap: 5px;
+  justify-content: right;
+  box-sizing: border-box;
   font-size: 0.8rem;
-  text-align: right;
+}
+.movie-card__rating::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  height: 100%;
+  aspect-ratio: 1/1;
+  background-image: url("../assets/svg/star.svg");
+  background-size: contain;
 }
 .movie-card__extra-info {
   color: var(--color-text);

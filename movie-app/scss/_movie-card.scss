@@ -31,7 +31,7 @@
 
   &__info {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     padding-inline: 0.6em;
   }
 
@@ -52,8 +52,21 @@
   &__rating {
     @include main-text;
 
+    display: flex;
+    gap: 5px;
+    justify-content: right;
+    box-sizing: border-box;
     font-size: 0.8rem;
-    text-align: right;
+
+    &::before {
+      content: "";
+      display: block;
+      box-sizing: border-box;
+      height: 100%;
+      aspect-ratio: 1 / 1;
+      background-image: url("../assets/svg/star.svg");
+      background-size: contain;
+    }
   }
 
   &__extra-info {
