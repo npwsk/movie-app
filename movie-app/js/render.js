@@ -1,7 +1,23 @@
-const renderCards = (container, data, baseUrl, genres) => {
+const renderCards = (content, data, baseUrl, genres) => {
   console.log(data);
 
   const movies = data.results.filter((movie) => movie.adult === false);
+  let container = content.querySelector('.main__movies-container');
+
+  if (movies.length === 0) {
+    const messageElem = document.createElement('div');
+    messageElem.classList.add('main__message');
+    messageElem.textContent = 'No results were found! Please try a different search.';
+    content.replaceChildren(messageElem);
+    return;
+  }
+
+  if (!container) {
+    container = document.createElement('div');
+    container.classList.add('main__movies-container');
+    content.replaceChildren(container);
+  }
+
   const cards = container.querySelectorAll('.movie-card');
 
   [...cards].filter((_card, i) => i >= movies.length).forEach((card) => card.remove());

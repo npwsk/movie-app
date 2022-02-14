@@ -6,7 +6,7 @@
   &__content {
     display: flex;
     gap: 10px;
-    align-items: center;
+    align-items: flex-end;
     padding-block: var(--padding-block-content);
   }
 
@@ -23,15 +23,15 @@
     position: relative;
     display: block;
     box-sizing: border-box;
-    padding: 10px 20px;
+    padding: 10px 15px;
     color: var(--color-text);
 
     &::after,
     &::before {
       content: " ";
       position: absolute;
-      width: 20px;
-      height: 20px;
+      width: 10px;
+      height: 10px;
       border: 0 solid #ffffff;
       transition-duration: 1s;
       transition-property: width, height, top, right, left, bottom;

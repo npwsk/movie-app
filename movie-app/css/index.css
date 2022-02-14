@@ -5,7 +5,7 @@
   --color-placeholder: #b6b6b6;
   --gap: 1.5rem;
   --padding-block-content: 2.5rem;
-  --font-size-main: 16px;
+  --font-size-main: 12px;
   --outline-size: 2px;
   --outline-style: solid;
   --outline-color: rgba(81 203 238 / 100%);
@@ -116,10 +116,10 @@ body {
 }
 .search-form__reset {
   position: absolute;
-  right: 3.5em;
+  right: 3em;
   box-sizing: border-box;
-  width: 1.3em;
-  height: 1.3em;
+  width: 1em;
+  height: 1em;
   padding: 0;
   background: none;
   background-image: url("../assets/svg/clear.svg");
@@ -145,8 +145,8 @@ body {
   position: absolute;
   right: 1em;
   box-sizing: border-box;
-  width: 2em;
-  height: 2em;
+  width: 1.5em;
+  height: 1.5em;
   padding: 0;
   background: none;
   background-image: url("../assets/svg/search.svg");
@@ -226,6 +226,14 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: var(--gap);
 }
+.main__message {
+  color: var(--color-text);
+  font-size: var(--font-size-main);
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 1.2em;
+  text-align: center;
+}
 
 .footer {
   margin-top: auto;
@@ -233,7 +241,7 @@ body {
 .footer__content {
   display: flex;
   gap: 10px;
-  align-items: center;
+  align-items: flex-end;
   padding-block: var(--padding-block-content);
 }
 .footer__copy, .footer__year {
@@ -248,14 +256,14 @@ body {
   position: relative;
   display: block;
   box-sizing: border-box;
-  padding: 10px 20px;
+  padding: 10px 15px;
   color: var(--color-text);
 }
 .footer__rsschool-link::after, .footer__rsschool-link::before {
   content: " ";
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   border: 0 solid #ffffff;
   transition-duration: 1s;
   transition-property: width, height, top, right, left, bottom;

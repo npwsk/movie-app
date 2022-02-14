@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 .main {
   &__content {
     padding-block: var(--padding-block-content);
@@ -7,5 +9,13 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: var(--gap);
+  }
+
+  &__message {
+    @include main-text;
+
+    font-weight: 700;
+    font-size: 1.2em;
+    text-align: center;
   }
 }

@@ -6,14 +6,14 @@ import getAuxillaryData from './preload.js';
 
 const { imageBaseUrl, genres } = await getAuxillaryData();
 
-const containerElem = document.querySelector('.main__movies-container');
+const contentElem = document.querySelector('.main__content');
 const searchFormElem = document.querySelector('.header__search-form');
 // const searchBtn = searchFormElem.querySelector('.search-form__submit');
 const searchInputElem = searchFormElem.querySelector('.search-form__input');
 const clearBtn = searchFormElem.querySelector('.search-form__reset');
 
 const trendingMovies = await getData(constants.TRENDING_URL);
-renderCards(containerElem, trendingMovies, imageBaseUrl, genres);
+renderCards(contentElem, trendingMovies, imageBaseUrl, genres);
 
 const handleFormSubmit = async (e) => {
   e.preventDefault();
@@ -21,7 +21,7 @@ const handleFormSubmit = async (e) => {
   const userInput = formData.get('user-input');
   console.log(formData);
   const resultData = await getData(`${constants.SEARCH_MOVIE_URL_BASE}&query=${userInput}`);
-  renderCards(containerElem, resultData, imageBaseUrl, genres);
+  renderCards(contentElem, resultData, imageBaseUrl, genres);
 };
 
 const handleFormReset = () => {
