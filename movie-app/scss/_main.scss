@@ -18,4 +18,10 @@
     font-size: 1.2em;
     text-align: center;
   }
+
+  &__pagination {
+    width: 120px;
+    margin-inline: auto;
+    margin-top: var(--gap);
+  }
 }

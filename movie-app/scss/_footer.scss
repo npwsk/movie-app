@@ -30,7 +30,7 @@
     &::before {
       content: " ";
       position: absolute;
-      width: 10px;
+      width: 15px;
       height: 10px;
       border: 0 solid #ffffff;
       transition-duration: 1s;
@@ -51,6 +51,7 @@
       border-bottom: 1px solid currentcolor;
     }
 
+    &:focus-visible,
     &:hover {
       &::before,
       &::after {

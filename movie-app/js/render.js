@@ -1,58 +1,41 @@
-const renderCards = (content, data, baseUrl, genres) => {
-  console.log(data);
+const renderNextPageBtn = (paginationContainer, nextPage, url) => {
+  const paginationBtn = document.createElement('button');
+  paginationBtn.textContent = 'Show more';
+  paginationBtn.classList.add('pagination__show-more-btn');
+  paginationBtn.dataset.nextPage = nextPage;
+  paginationBtn.dataset.fetchUrl = url;
+  paginationContainer.replaceChildren(paginationBtn);
+  return paginationBtn;
+};
 
-  const movies = data.results;
-  let container = content.querySelector('.main__movies-container');
+const renderCards = ({
+  elements: { containerElem, paginationElem, messageElem },
+  movies,
+  baseUrl,
+  genres,
+  userInput,
+  showMore = false,
+}) => {
+  paginationElem.replaceChildren();
+  messageElem.replaceChildren();
+
+  if (!showMore) {
+    containerElem.replaceChildren();
+  }
 
   if (movies.length === 0) {
-    const messageElem = document.createElement('div');
-    messageElem.classList.add('main__message');
-    messageElem.textContent = 'No results were found! Please try a different search.';
-    content.replaceChildren(messageElem);
+    containerElem.replaceChildren();
+    messageElem.textContent = `No results were found for '${userInput}'! Please try a different search.`;
     return;
   }
 
-  if (!container) {
-    container = document.createElement('div');
-    container.classList.add('main__movies-container');
-    content.replaceChildren(container);
-  }
-
-  const cards = container.querySelectorAll('.movie-card');
-
-  [...cards].filter((_card, i) => i >= movies.length).forEach((card) => card.remove());
-
-  movies.forEach((movie, i) => {
+  movies.forEach((movie) => {
     const { poster_path: posterPath, genre_ids: genreIdList } = movie;
     const imgSrc = posterPath ? `${baseUrl}w500${posterPath}` : './assets/img/no-poster.jpg';
     const genreList = genreIdList
       .map((targetId) => genres.find((genre) => genre.id === targetId))
       .map((genre) => genre.name);
     const mainGenre = genreList.length ? genreList[0] : '';
-
-    if (i < cards.length) {
-      const posterElem = cards[i].querySelector('.movie-card__poster');
-      const titleElem = cards[i].querySelector('.movie-card__title');
-      const genreElem = cards[i].querySelector('.movie-card__main-genre');
-      const ratingElem = cards[i].querySelector('.movie-card__rating');
-      const genreListElem = cards[i].querySelector('.movie-card__genres');
-      const dateElem = cards[i].querySelector('.movie-card__release-date');
-      const overviewElem = cards[i].querySelector('.movie-card__overview');
-
-      const imgELem = new Image();
-      imgELem.classList.add('movie-card__img');
-      imgELem.src = imgSrc;
-      imgELem.alt = movie.title;
-      titleElem.textContent = movie.title;
-      ratingElem.textContent = movie.vote_average;
-      genreElem.textContent = mainGenre;
-      genreListElem.textContent = genreList.join(', ');
-      dateElem.textContent = movie.release_date;
-      overviewElem.textContent = movie.overview;
-
-      posterElem.replaceChildren(imgELem);
-      return;
-    }
 
     const newCard = document.createElement('article');
     newCard.classList.add('movie-card');
@@ -76,8 +59,8 @@ const renderCards = (content, data, baseUrl, genres) => {
       </div>
 
     `;
-    container.append(newCard);
+    containerElem.append(newCard);
   });
 };
 
-export default renderCards;
+export { renderCards, renderNextPageBtn };

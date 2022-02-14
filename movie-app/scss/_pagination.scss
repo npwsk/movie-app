@@ -1,0 +1,21 @@
+@use "mixins" as *;
+
+.pagination {
+  &__show-more-btn {
+    @include main-text;
+
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 20px;
+    background: var(--color-bg);
+    border: 1px solid currentcolor;
+    cursor: pointer;
+    transition: color 0.2s ease-in, background 0.2s ease-in;
+
+    &:focus-visible,
+    &:hover {
+      color: var(--color-bg);
+      background: var(--color-text);
+    }
+  }
+}
