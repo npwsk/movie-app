@@ -55,7 +55,7 @@ const renderCards = ({
       <div class="movie-card__info">
         <div class="movie-card__title">${movie.title}</div>
         <div class="movie-card__main-genre">${mainGenre}</div>
-        <div class="movie-card__rating">${movie.vote_average}</div>
+        <div class="movie-card__rating">${movie.vote_average.toFixed(1)}</div>
       </div>
 
     `;
